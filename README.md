@@ -1,5 +1,5 @@
 # Django + celery + docker project template
-This is a template for django REST framework with ```celery```.
+This is a template for ```django REST framework``` with ```celery```.
 It contains (or will contain) everything you need to start your app fast and easy while on hackaton or somewhere idk.
 
 It uses ```redis``` for ```celery``` queue and ```postgres``` for everything else.
