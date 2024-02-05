@@ -1,0 +1,9 @@
+django
+djangorestframework
+celery
+gunicorn
+djoser
+whitenoise
+django-cors-headers
+redis
+postgres

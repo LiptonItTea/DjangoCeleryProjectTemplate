@@ -1,0 +1,35 @@
+version: '3.1'
+
+services:
+  django:
+    build: .
+    ports:
+      - "8001:8000"
+    entrypoint: /project/EntryPoints/server-entrypoint.sh
+    container_name: django
+
+  db:
+    image: postgres
+    restart: always
+    # If you change credentials here, change them in settings.py too!
+    environment:
+      POSTGRES_DB: your_db
+      POSTGRES_USER: your_user
+      POSTGRES_PASSWORD: your_password
+    ports:
+      - "8002:5432"
+    container_name: postgres
+
+  celery-worker:
+    build: .
+    entrypoint: /project/EntryPoints/celery-entrypoint.sh
+    container_name: celery
+    depends_on:
+      - django
+
+  redis:
+    image: redis
+    restart: always
+    ports:
+      - "8003:6379"
+    container_name: redis
