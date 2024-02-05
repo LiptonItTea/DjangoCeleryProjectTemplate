@@ -1,8 +1,8 @@
 from DjangoCeleryProjectTemplate.celery import app
 
-# Example function for celery.
 @app.task
 def sum(*args, **kwargs):
+    """ Example function for celery. """
     number1 = args[0]
     number2 = args[1]
 
